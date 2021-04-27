@@ -1,5 +1,6 @@
-var currentDay = moment("April-27th-2021").format("MMM Do, YYYY");
-$("#1a").text(currentDay);
-console,log("time");
+var currentDay = moment("2021-07-27T01:32:21.196+0600");
+$(".lead").text(currentDay);
+
+dfd
 
 
