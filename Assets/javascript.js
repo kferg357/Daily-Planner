@@ -1,6 +1,5 @@
-var today = moment();
-$("#1a").text(today.format("MMM Do, YYYY"));
+var currentDay = moment("April-27th-2021").format("MMM Do, YYYY");
+$("#1a").text(currentDay);
+console,log("time");
 
-// checking push
 
-//re cgeck
