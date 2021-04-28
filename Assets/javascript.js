@@ -1,6 +1,12 @@
-var currentDay = moment("2021-07-27T01:32:21.196+0600");
+// var currentDay = ('April 28th, 2021');
+var currentDay = $('#time-display');
 $(".lead").text(currentDay);
 
-dfd
 
+// handle displaying the time
+function displayTime() {
+    var rightNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
+    currentDay.text(rightNow);
+  }
 
+  setInterval(displayTime, 1000);
