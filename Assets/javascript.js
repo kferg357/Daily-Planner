@@ -1,20 +1,12 @@
 // var currentDay = ('April 28th, 2021');
 var currentDay = $('#time-display');
 $(".lead").text(currentDay);
-
-
-
-
-
 // handle displaying the time
 function displayTime() {
     var rightNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
     currentDay.text(rightNow);
   }
-
   setInterval(displayTime, 1000);
-
-
   //
   $(document).ready(function () {
     
@@ -36,14 +28,13 @@ function displayTime() {
         { time: 17, input: "" },
        
     ]
-
     // var workHours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
-    function displayTime(time) {
-         if (time > 12) {
-           return time - 12
-         } else {
-           return time
-         }
+    function convertTime(time) {
+         if (time > 12) {
+           return time - 12
+         } else {
+           return time
+         }
        }
     
      
@@ -52,13 +43,16 @@ function displayTime() {
     function printTime() {
         $("#currentDay").text(todaysDate);
     }
+      printTime();
+
     //Show Hours on the DOM
     function printInputBlocks() {
         for (let i = 0; i < timeInputs.length; i++) {
+            var convertedTime = convertTime(timeInputs[i].time)
             console.log(timeInputs[i].time, timeInputs[i].input);
             var inputGroup = $('<div class="input-group mb-3">');
             var inputGroupPrepend = $('<div class="input-group-prepend">');
-            var prependSpan = $('<span class="input-group-text">' + timeInputs[i].time + ':00' + '</span>');
+            var prependSpan = $('<span class="input-group-text">' + convertedTime + ':00' + '</span>');
             inputGroupPrepend.append(prependSpan);
             var inputEl = $('<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" value="' + timeInputs[i].input + '">');
             var inputGroupAppend = $('<div class="input-group-append">');
@@ -67,27 +61,21 @@ function displayTime() {
             inputGroup.append(inputGroupPrepend).append(inputEl).append(inputGroupAppend);
             var nowTime = parseInt(moment().format("H"));
    console.log("nowTime: " + nowTime)
-                 if (timeInputs[i].time < nowTime) {
-               inputGroup.addClass("past");
-                 } else if (timeInputs[i].time > nowTime) {
-               inputGroup.addClass("future");
-                 } else {
-               inputGroup.addClass("present");
-                }
+                 if (timeInputs[i].time < nowTime) {
+               inputGroup.addClass("past");
+                 } else if (timeInputs[i].time > nowTime) {
+               inputGroup.addClass("future");
+                 } else {
+               inputGroup.addClass("present");
+                }
             $(".container").append(inputGroup);
         }
     }
     printInputBlocks();
 })
-
    
-           
-          
-
-
-
-
-
+           
+          
     function compareTime() {
         var nowTime = parseInt(moment().format('HH'));
         //Start from 9AM, till 5PM
@@ -103,7 +91,7 @@ function displayTime() {
             }
         }
     }
-    //     compareTime();
-    // printTime();
+        compareTime();
+  
     
     
