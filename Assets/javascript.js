@@ -58,20 +58,26 @@ function displayTime() {
             var appendSpan = $('<span data-time="" class="input-group-text"><button>Save</button></span>');
             inputGroupAppend.append(appendSpan);
             inputGroup.append(inputGroupPrepend).append(inputEl).append(inputGroupAppend);
+            var nowTime = parseInt(moment().format("H"));
+   
+                 if (timeInputs[i].time < nowTime) {
+               inputGroup.addClass("past");
+                 } else if (timeInputs[i].time > nowTime) {
+               inputGroup.addClass("future");
+                 } else {
+               inputGroup.addClass("present");
+                }
             $(".container").append(inputGroup);
         }
     }
 
 })
 
+   
+           
+          
 
 
-
-if (timeInputs [i] === currentHour) {
-    $(inputDiv).css('background', '#ccffee');
-    } else if (workHours[i] > currentHour) {
-        $(inputDiv).css('background', '#42f55a');
-    
 
 
 
