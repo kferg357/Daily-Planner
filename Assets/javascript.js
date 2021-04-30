@@ -4,6 +4,8 @@ $(".lead").text(currentDay);
 
 
 
+
+
 // handle displaying the time
 function displayTime() {
     var rightNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
@@ -27,13 +29,18 @@ function displayTime() {
         { time: 10, input: "" },
         { time: 11, input: "Go to work" },
         { time: 12, input: "" },
-        { time: 1, input: "" },
-        { time: 2, input: "" },
-        { time: 3, input: "" },
-        { time: 4, input: "" },
-        { time: 5, input: "" },
+        { time: 13, input: "" },
+        { time: 14, input: "" },
+        { time: 15, input: "" },
+        { time: 16, input: "" },
+        { time: 17, input: "" },
        
     ]
+
+    var workHours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+    
+     
+        
     //Show Today's date on the DOM
     function printTime() {
         $("#currentDay").text(todaysDate);
@@ -53,4 +60,37 @@ function displayTime() {
             inputGroup.append(inputGroupPrepend).append(inputEl).append(inputGroupAppend);
             $(".container").append(inputGroup);
         }
+    }
+
+})
+
+
+
+
+if (timeInputs [i] === currentHour) {
+    $(inputDiv).css('background', '#ccffee');
+    } else if (workHours[i] > currentHour) {
+        $(inputDiv).css('background', '#42f55a');
+    
+
+
+
+    function compareTime() {
+        var nowTime = parseInt(moment().format('HH'));
+        //Start from 9AM, till 5PM
+        for (time = 9; time >= 17; time++) {
+            var timeBlock = parseInt($("#" + time + "hr").attr("data-index"));
+            console.log(timeBlock);
+            if (timeBlock < nowTime) {
+                $("#" + time + "hr").addClass("past");
+            } else if (timeBlock == nowTime) {
+                $("#" + time + "hr").addClass("present");
+            } else if (timeBlock > nowTime) {
+                $("#" + time + "hr").addClass("future");
+            }
+        }
+    }
+        compareTime();
+    printTime();
+    printInputBlocks();
     }
