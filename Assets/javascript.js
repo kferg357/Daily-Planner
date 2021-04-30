@@ -37,7 +37,14 @@ function displayTime() {
        
     ]
 
-    var workHours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+    // var workHours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+    function displayTime(time) {
+         if (time > 12) {
+           return time - 12
+         } else {
+           return time
+         }
+       }
     
      
         
@@ -59,7 +66,7 @@ function displayTime() {
             inputGroupAppend.append(appendSpan);
             inputGroup.append(inputGroupPrepend).append(inputEl).append(inputGroupAppend);
             var nowTime = parseInt(moment().format("H"));
-   
+   console.log("nowTime: " + nowTime)
                  if (timeInputs[i].time < nowTime) {
                inputGroup.addClass("past");
                  } else if (timeInputs[i].time > nowTime) {
@@ -70,7 +77,7 @@ function displayTime() {
             $(".container").append(inputGroup);
         }
     }
-
+    printInputBlocks();
 })
 
    
@@ -96,7 +103,7 @@ function displayTime() {
             }
         }
     }
-        compareTime();
-    printTime();
-    printInputBlocks();
-    }
+    //     compareTime();
+    // printTime();
+    
+    
