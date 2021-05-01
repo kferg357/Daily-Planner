@@ -74,13 +74,13 @@ function displayTime() {
     }
     printInputBlocks();
 
-    // Retrieves Any Local Starage Info that already exists
+    
 
     // Setting Information in Local storage
     $('.btn').on('click', function(event) {
         console.log("Save Clicked");
         console.log(event.target);
-        var id = $(this).parent().siblings.attr('.input-group-text');
+        var id = $(this).parent().siblings('.input-group-prepend').children('.input-group-text').attr('id'); 
         console.log(id);
         let userData = $(this).parent().siblings(".form-control").val();
         console.log(userData);
@@ -88,14 +88,13 @@ function displayTime() {
         // captutr the 'KEY' you want to associate
     
 
-        
-        localStorage.setItem('test', userData);
-    
+        localStorage.setItem(id, userData);
         // let arr = [1, 2, 3, 4, 5];
         // localStorage.setItem('array', JSON.stringify(arr))
-    
-        let temp = localStorage.getItem('');
-        console.log(temp);
+        let temp = localStorage.getItem(id);
+        console.log(temp, 'TEMP');
+        console.log(localStorage, 'localStorage')  
+      
         
     });
 })
