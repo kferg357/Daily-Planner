@@ -53,10 +53,11 @@ function displayTime() {
             var inputGroup = $('<div class="input-group mb-3">');
             var inputGroupPrepend = $('<div class="input-group-prepend">');
             var prependSpan = $('<span class="input-group-text">' + convertedTime + ':00' + '</span>');
+            prependSpan.attr("id",convertedTime);
             inputGroupPrepend.append(prependSpan);
             var inputEl = $('<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" value="' + timeInputs[i].input + '">');
             var inputGroupAppend = $('<div class="input-group-append">');
-            var appendSpan = $('<span data-time="" class="input-group-text"><button>Save</button></span>');
+            var appendSpan = $('<span data-time="" class="input-group-text btn"><button>Save</button></span>');
             inputGroupAppend.append(appendSpan);
             inputGroup.append(inputGroupPrepend).append(inputEl).append(inputGroupAppend);
             var nowTime = parseInt(moment().format("H"));
@@ -72,6 +73,31 @@ function displayTime() {
         }
     }
     printInputBlocks();
+
+    // Retrieves Any Local Starage Info that already exists
+
+    // Setting Information in Local storage
+    $('.btn').on('click', function(event) {
+        console.log("Save Clicked");
+        console.log(event.target);
+        var id = $(this).parent().siblings.attr('.input-group-text');
+        console.log(id);
+        let userData = $(this).parent().siblings(".form-control").val();
+        console.log(userData);
+
+        // captutr the 'KEY' you want to associate
+    
+
+        
+        localStorage.setItem('test', userData);
+    
+        // let arr = [1, 2, 3, 4, 5];
+        // localStorage.setItem('array', JSON.stringify(arr))
+    
+        let temp = localStorage.getItem('');
+        console.log(temp);
+        
+    });
 })
    
            
@@ -92,6 +118,4 @@ function displayTime() {
         }
     }
         compareTime();
-  
-    
     
