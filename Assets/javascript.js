@@ -87,8 +87,7 @@ $(document).ready(function () {
 
     // captutr the 'KEY' you want to associate
     localStorage.setItem(id, userData);
-    // let arr = [1, 2, 3, 4, 5];
-    // localStorage.setItem('array', JSON.stringify(arr))
+    
     let temp = localStorage.getItem(id);
     console.log(temp, 'TEMP');
     console.log(localStorage, 'localStorage')
@@ -113,7 +112,7 @@ $(document).ready(function () {
 function compareTime() {
   var nowTime = parseInt(moment().format('HH'));
   //Start from 9AM, till 5PM
-  for (time = 9; time >= 17; time++) {
+  for (time = 7; time >= 17; time++) {
     var timeBlock = parseInt($("#" + time + "hr").attr("data-index"));
     console.log(timeBlock);
     if (timeBlock < nowTime) {
