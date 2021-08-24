@@ -33,3 +33,7 @@ WHEN I refresh the page
 THEN the saved events persist
 ```
 
+
+![daily planner](https://user-images.githubusercontent.com/79925523/130670776-b613cbd4-bf02-419a-8817-b67ca1ce0922.PNG)
+
+
